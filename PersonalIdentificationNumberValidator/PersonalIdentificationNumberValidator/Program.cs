@@ -15,16 +15,18 @@ namespace PersonalIdentificationNumberValidator
                 //Save the number as a string without whitespaces on the sides
                 string numberToValidate = Console.ReadLine().Trim();
 
-                //Make sure the users number is an integer
-                if (!long.TryParse(numberToValidate, out long i))
-                {
-                    Console.WriteLine("The number you enter must be an integer!");
-                }
-
                 //See if users number is a 10-digit integer 
                 if (numberToValidate.Length != 10)
                 {
                     Console.WriteLine("The number is can't be an bulgarian personal identification number, as it has no 10 digits.");
+                    continue;
+                }
+
+                //Make sure the users number is an integer
+                if (!long.TryParse(numberToValidate, out long i))
+                {
+                    Console.WriteLine("The number you enter must be an integer!");
+                    continue;
                 }
 
                 //Final Check
